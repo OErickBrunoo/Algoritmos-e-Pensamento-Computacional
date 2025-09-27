@@ -14,6 +14,10 @@ int main() {
 	
     //printf("Selecione a função \n Adição (1)\n subtração (2)\n Multiplicação (3)\n Divisao (4):\n Exponenciação (5) \n Raiz Quadrada (6) \n Seno (7) \n Cosseno (8)\n Resposta:");
 	
+	//caso queira compilar esse arquivo em CGI é necessário ter o gcc e usar o seguinte comando "gcc calculadora.c -o cgi-bin/calculadora.cgi" isso vai compilar esse arquivo em CGI, toda vez que fizer uma atualizar essa ação tem que ser feita. e seu cmd precisa estar no diretório padrão.
+	
+	//A primeira execução demora um pouco.
+	
     sscanf(dados, "%lf&%d&%lf", &pnumero, &escolha, &snumero); // formato {num1}&${operador}&${num2}
     
 	if (escolha <= 5) {
