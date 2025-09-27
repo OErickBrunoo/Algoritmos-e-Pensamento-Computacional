@@ -52,8 +52,6 @@ int main() {
 	} else {
 		switch (escolha) {
         case 6:
-			printf("Digite o Número: ");
-			scanf("%f", &pnumero);
 		if (pnumero >= 0) {
             resultado = sqrt(pnumero);
             printf("\nResultado: %g", resultado);
@@ -62,8 +60,6 @@ int main() {
 		}
             break;
 		case 7:
-			printf("Digite o Número: ");
-			scanf("%f", &pnumero);
 			pri_grau = pi / 180.0;
 			radianos = pnumero * pri_grau;
 			
@@ -71,8 +67,6 @@ int main() {
 			printf("\n Resultado: %g", resultado);
             break;
 		case 8:
-			printf("Digite o Número: ");
-			scanf("%f", &pnumero);
 			pri_grau = pi / 180.0;
 			radianos = pnumero * pri_grau;
 			
