@@ -1,51 +1,166 @@
-Uma calculadora em C com uma interface bem simples em HTML, utilizando a biblioteca <stdlib.h> e compilação via CGI (Common Gateway Interface). Isso permite que haja comunicação entre a interface web e o código em C.
 
-O JavaScript envia as informações necessárias em uma string, via URL, para o script calculadora.cgi. Ele manda os dados no seguinte formato: {num1}&{operador}&{num2}.
+---
 
-A biblioteca <stdlib.h> fornece a função getenv(), que é usada para capturar essa string. A função lê a variável de ambiente padrão "QUERY_STRING" e armazena seu conteúdo na variável dados.
+#  Calculadora em C com Interface Web (CGI)
 
-Também existe uma versão da calculadora (calculadoraindependente.c) que possui as mesmas funções, mas funciona de forma autônoma, com toda a interatividade via console.
+Este projeto é uma **calculadora desenvolvida em C** que pode ser utilizada tanto via **console** quanto através de uma **interface web simples em HTML**.
+A comunicação entre o código em C e a interface web é feita utilizando **CGI (Common Gateway Interface)**.
 
-Sobre o funcionamento da Calculadora em si:
+A calculadora é capaz de realizar desde operações básicas até funções matemáticas avançadas, usando as bibliotecas **stdlib.h** e **math.h**.
 
-Para a escolha de função foi usado o switch case, e para o funcionamento da vasta maioria das funções foi usando as funções da biblioteca <math.h>.
+---
 
-Funções:
+## Tabela de Conteúdos
 
-- Adição
-- Subtração
-- Multiplicação
-- Divisão
-- Exponenciação (Potência)
-- Módulo (Resto da divisão)
-- Porcentagem
-- Hipotenusa
-- Raiz quadrada
-- Raiz cúbica
-- Seno
-- Cosseno
-- Tangente
-- Arco seno
-- Arco cosseno
-- Arco tangente
-- Logaritmo na base 10
-- Logaritmo natural
-- Fatorial
-- Valor absoluto
-- Arredondar para baixo
-- Arredondar para cima
-- Converter Graus para radianos
-- Converter Radianos para graus
-- Equação de segundo grau (Bhaskara)
+* [Introdução](#-introdução)
+* [Funcionalidades](#-funcionalidades)
+* [Arquitetura](#-arquitetura)
+* [Dependências](#-dependências)
+* [Instalação e Execução](#-instalação-e-execução)
+* [Uso](#-uso)
+* [Exemplos de Entrada](#-exemplos-de-entrada)
+* [Versão Independente](#-versão-independente)
+* [Contribuidores](#-contribuidores)
 
-Dependências:
-- python
-- MinGW
+---
 
-Como Executar:
+## Introdução
 
-1. Abra seu cmd no diretório main do projeto.
+A interface web envia os dados para o código em C via **JavaScript**.
+Esses dados são passados pela URL no formato:
 
-2. coloque o seguinte código: "py -m http.server --cgi 5000"
+```
+{num1}&{operador}&{num2}&{num3}
+```
 
-3. Abra o seu navegador no site: "http://localhost:5000/"
+O código em C utiliza a função **getenv()**, da biblioteca `<stdlib.h>`, para capturar a variável de ambiente padrão `QUERY_STRING`.
+
+O processamento é feito no backend (C), e o resultado é retornado à página HTML.
+
+---
+
+## Funcionalidades
+
+A calculadora suporta as seguintes operações:
+
+* Adição
+* Subtração
+* Multiplicação
+* Divisão
+* Exponenciação (Potência)
+* Módulo (Resto da divisão)
+* Porcentagem
+* Hipotenusa
+* Raiz quadrada
+* Raiz cúbica
+* Seno
+* Cosseno
+* Tangente
+* Arco seno
+* Arco cosseno
+* Arco tangente
+* Logaritmo na base 10
+* Logaritmo natural
+* Fatorial
+* Valor absoluto
+* Arredondar para baixo (floor)
+* Arredondar para cima (ceil)
+* Conversão: Graus → Radianos
+* Conversão: Radianos → Graus
+* Equação de segundo grau (Bhaskara)
+
+---
+
+## Arquitetura
+
+* **Frontend**: HTML + JavaScript (interface simples para entrada de dados).
+* **Backend**: Código em C compilado como **CGI**.
+* **Comunicação**: O navegador envia os dados via URL (`QUERY_STRING`) → o script em C processa → retorna o resultado em HTML.
+
+---
+
+## Dependências
+
+* **Python** (para rodar o servidor local CGI)
+* **MinGW** (para compilar o código em C no Windows)
+
+---
+
+## Instalação e Execução
+
+1. Compile o código C para CGI:
+
+   ```bash
+   gcc calculadora.c -o calculadora.cgi -lm
+   ```
+
+2. Inicie o servidor local (no diretório raiz do projeto):
+
+   ```bash
+   py -m http.server --cgi 5000
+   ```
+
+3. Acesse no navegador:
+
+   ```
+   http://localhost:5000/
+   ```
+
+---
+
+## Uso
+
+* Insira os valores e selecione a operação pela interface HTML.
+* O **JavaScript** formatará os dados como string (`num1&operador&num2`) e enviará para `calculadora.cgi`.
+* O backend processará e retornará o resultado em tempo real.
+
+---
+
+## Exemplos de Entrada
+
+* **Adição:**
+
+  ```
+  10&+&5
+  ```
+
+  Resultado: `15`
+
+* **Potência:**
+
+  ```
+  2&^&8
+  ```
+
+  Resultado: `256`
+
+* **Bhaskara:**
+
+  ```
+  1&bhaskara&-3&2
+  ```
+
+  Resultado: `x1=2, x2=1`
+
+---
+
+## Versão Independente
+
+Além da versão CGI, o projeto também possui o arquivo **calculadoraindependente.c**, que pode ser executado diretamente no console.
+
+### Executar no console:
+
+```bash
+gcc calculadoraindependente.c -o calculadora -lm
+./calculadora
+```
+
+---
+
+## Contribuidores
+
+* Desenvolvido por **Erick Bruno**
+
+
+---
+
