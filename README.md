@@ -77,7 +77,7 @@ A calculadora suporta as seguintes operações:
 1. Compile o código C para CGI:
 
    ```bash
-   gcc calculadora.c -o calculadora.cgi -lm
+   gcc calculadora.c -o cgi-bin/calculadora.cgi -lm
    ```
 
 2. Inicie o servidor local (no diretório raiz do projeto):
@@ -137,7 +137,7 @@ Além da versão CGI, o projeto também possui o arquivo **calculadoraindependen
 ### Executar no console:
 
 ```bash
-gcc calculadora.c -o cgi-bin/calculadora.cgi -lm
+gcc calculadoraindependente.c -o calculadora -lm
 ./calculadora
 ```
 
