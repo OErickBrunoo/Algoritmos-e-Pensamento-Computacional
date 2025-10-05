@@ -145,7 +145,7 @@ gcc calculadoraindependente.c -o calculadora -lm
 
 ## Contribuidores
 
-* Desenvolvido por **Erick Bruno** **Ector Falcão** **Leonardo Tales**
+* Desenvolvido por **Erick Bruno**, **Ector Falcão**, **Leonardo Tales**
 
 
 ---
