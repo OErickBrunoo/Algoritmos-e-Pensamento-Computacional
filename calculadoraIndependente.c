@@ -3,13 +3,29 @@
 #include <stdlib.h>
 
 int main() {
-    double pnumero, snumero, tnumero, qnumero, delta, resultado, resultado2, pcima1, pbaixo, pcima2;
+    double pnumero, snumero, tnumero, qnumero, delta, resultado, resultado2, pcima1, pbaixo, pcima2, acao;
     int escolha, continuar = 0;
     const double pi = 3.1415926535897;
+	int *array; 
+    int tamanho;
 
 
 	while (continuar <= 1) {
-		
+	
+	    pnumero = 0.0;
+        snumero = 0.0;
+        tnumero = 0.0;
+        qnumero = 0.0;
+        delta = 0.0;
+        resultado = 0.0;
+        resultado2 = 0.0;
+        pcima1 = 0.0;
+        pbaixo = 0.0;
+        pcima2 = 0.0;
+        acao = 0.0;
+        escolha = 0;
+        tamanho = 0;
+	
     printf("\n===========================================================================\n");
     printf("                          CALCULADORA CIENTIFICA\n");
     printf("===========================================================================\n\n");
@@ -19,8 +35,8 @@ int main() {
     printf("  [10] Raiz Cubica        [11] Seno                  [12] Cosseno\n");
     printf("  [13] Tangente           [14] Arcseno               [15] Arccosseno\n");
     printf("  [16] Arctangente        [17] Logaritmo base 10     [18] Logaritmo Natural\n");
-    printf("  [19] Fatorial           [20] Valor Absoluto        [21] Arredondar p Baixo\n");
-    printf("  [22] Arredondar p Cima  [23] Graus para Radianos   [24] Radianos para Graus\n");
+    printf("  [19] Fatorial           [20] Radianos para Graus   [21] Arredondar p Baixo\n");
+    printf("  [22] Arredondar p Cima  [23] Graus para Radianos   [24] Teorema de Pitagoras\n");
     printf("  [25] Bhaskara\n\n");
     printf("===========================================================================\n\n");
 
@@ -29,17 +45,17 @@ int main() {
     scanf("%d", &escolha);
 
 
-    if (escolha <= 8) {
+    if (escolha >= 5 && escolha <= 8) {
         printf("Digite o primeiro numero: ");
         scanf("%lf", &pnumero);
         printf("Digite o segundo numero: ");
         scanf("%lf", &snumero);
     } 
-    else if (escolha >= 9 && escolha <= 24) {
+    else if (escolha >= 9 && escolha <= 23) {
         printf("Digite o numero: ");
         scanf("%lf", &pnumero);
     }
-	else if (escolha >= 24) {
+	else if (escolha >= 23) {
 		printf("Digite o A: ");
 		scanf("%lf", &pnumero);
 		printf("Digite o B: ");
@@ -51,53 +67,98 @@ int main() {
 
     switch (escolha) {
         case 1:// Adição
-            resultado = pnumero + snumero;
-            printf("\nResultado: %g\n", resultado);
+			printf("Digite o total de números que vai querer somar: ");
+			scanf("%d", &tamanho);
+			{
+			acao = 0;
+			}
+			array = (int *) malloc(tamanho * sizeof(int));
+			
+			printf("Digite %d elementos:\n", tamanho);
+			for (int i = 0; i < tamanho; i++) {
+			printf("Elemento %d: ", i + 1);
+			scanf("%d", &array[i]);
+			acao += array[i]; 
+			}
+			
+			printf("\nResultado: %g\n", acao);
+			
+			free(array);
             break;
         case 2:// Subtração
-            resultado = pnumero - snumero;
-            printf("\nResultado: %g\n", resultado);
+            printf("Número de elementos: ");
+			scanf("%d", &tamanho);
+			array = (int *) malloc(tamanho * sizeof(int));
+			
+			printf("Digite o elemento principal: ");
+			scanf("%d", &array[0]);
+			
+			acao = array[0];
+			printf("Digite %d elementos a serem subtraidos:\n", tamanho);
+			for (int i = 0; i < tamanho; i++) {
+			printf("A subtrair %d: ", i + 1);
+			scanf("%d", &array[i]);
+			acao -= array[i];
+			}
+			
+			printf("\nResultado: %g\n", acao);
+			
+			free(array);
             break;
         case 3:// Multiplicação
-            resultado = pnumero * snumero;
-            printf("\nResultado: %g\n", resultado);
+            printf("Digite o total de números a Multiplicar:");
+			scanf("%d", &tamanho);
+			
+			acao = 1;
+
+			array = (int *) malloc(tamanho * sizeof(int));
+			
+			printf("Digite %d elementos:\n", tamanho);
+			for (int i = 0; i < tamanho; i++) {
+			printf("Elemento %d: ", i + 1);
+			scanf("%d", &array[i]);
+			acao *= array[i]; 
+			}
+			
+			printf("\nResultado: %g\n", acao);
+			free(array);
             break;
         case 4:// Divisão
             if (snumero == 0) {
                 printf("\nNão é possível dividir por zero.\n");
             } else {
                 resultado = pnumero / snumero;
-                printf("\nResultado: %g\n", resultado);
+                printf("%g", resultado);
             }
             break;
         case 5:// Exponenciação
             resultado = pow(pnumero, snumero);
             printf("\nResultado: %g\n", resultado);
             break;
-        case 6:// Módulo resto da divisão
+        case 6:// Modulo resto da divisão
             resultado = fmod(pnumero, snumero);
             printf("\nResultado: %g\n", resultado);
             break;
-        case 7:// Porcentagem (pnumero % de snumero)
+        case 7:// Porcentagem
             resultado = (pnumero / 100.0) * snumero;
-            printf("\nResultado: %g\n", resultado);
+            printf("\nresultado: %g\n", resultado);
             break;
         case 8:// Hipotenusa
             resultado = hypot(pnumero, snumero);
             printf("\nResultado: %g\n", resultado);
             break;
-        case 9:// Raiz Quadrada
+        case 9:// Raiz quadrada
                 resultado = sqrt(pnumero);
                 printf("\nResultado: %g\n", resultado);
             break;
-        case 10:// Raiz Cúbica
+        case 10:// Raiz cubica
             resultado = cbrt(pnumero);
             printf("\nResultado: %g\n", resultado);
             break;
         case 11:{// Seno
             double radianos = pnumero * (pi / 180.0);
             resultado = sin(radianos);
-            printf("\nResultado: %g\n", resultado);
+            printf("\nresultado: %g\n", resultado);
 		}
             break;
         case 12:{// Cosseno
@@ -106,7 +167,7 @@ int main() {
             printf("\nResultado: %g\n", resultado);
 		}
             break;
-        case 13:{// Tangente
+        case 13:{ // Tangente
             double radianos = pnumero * (pi / 180.0);
                 resultado = tan(radianos);
                 printf("\nResultado: %g\n", resultado);
@@ -128,7 +189,7 @@ int main() {
                 resultado = log10(pnumero);
                 printf("\nResultado: %g\n", resultado);
             break;
-        case 18:// Logaritmo Natural
+        case 18:// Logaritmo natural
                 resultado = log(pnumero);
                 printf("\nResultado: %g\n", resultado);
             break;
@@ -139,25 +200,40 @@ int main() {
                 }
                 printf("\nResultado: %g\n", resultado);
             break;
-        case 20:// Valor Absoluto
-            resultado = fabs(pnumero);
-            printf("\nResultado: %g\n", resultado);
+        case 20:// Radianos para Graus
+            resultado = pnumero * (180.0 / pi);
+            printf("\nResultado graus: %g\n", resultado);
             break;
         case 21:// Arredondar para baixo
             resultado = floor(pnumero);
             printf("\nResultado: %g\n", resultado);
             break;
-        case 22:// Arredondar para cima
+        case 22:// Arredondar 
             resultado = ceil(pnumero);
-            printf("\nResultado: %g\n", resultado);
+            printf("\nresultado: %g\n", resultado);
             break;
-        case 23:// Graus para Radianos
+        case 23:// Graus para radianos
             resultado = pnumero * (pi / 180.0);
-            printf("\nResultado (em radianos): %g\n", resultado);
+            printf("\nResultado radianos: %g\n", resultado);
             break;
-        case 24:// Radianos para Graus
-            resultado = pnumero * (180.0 / pi);
-            printf("\nResultado (em graus): %g\n", resultado);
+        case 24:// Teorema de Pitagoras
+			    if (pnumero == 0) {
+				pnumero = (snumero * snumero) + (tnumero * tnumero);
+				resultado = sqrt(pnumero);
+				printf("\nResultado: %g\n", resultado);
+			} else if (snumero == 0) {
+				pcima1 = (tnumero * tnumero);
+				pbaixo = (pnumero * pnumero);
+				pcima2 = pbaixo - pcima1;
+				resultado = sqrt(pcima2);
+				printf("\nResultado: %g\n", resultado);
+			} else if (tnumero == 0) {
+				pcima1 = (snumero * snumero);
+				pbaixo = (pnumero * pnumero);
+				pcima2 = pbaixo - pcima1;
+				resultado = sqrt(pcima2);
+				printf("\nResultado: %g\n", resultado);
+			}
             break;
         case 25:// Equação de segundo grau usando baskara
 			delta = pow(snumero, 2) - (4 * (pnumero * tnumero));
@@ -173,12 +249,12 @@ int main() {
 			} else if (delta == 0) {
 			resultado = -snumero / (2 * pnumero);
         
-			printf("A equacao possui uma unica raiz real (ou duas raizes iguais):\n");
+			printf("A equacao possui uma unica raiz real:\n");
 			printf("x = %.2lf\n", resultado);
 				
 			} else if (delta < 0) {
-			printf("O Delta eh negativo.\n");
-			printf("A equacao nao possui raizes no conjunto dos numeros reais.\n");
+			printf("Delta negativo.\n");
+			printf("A raiz não está nos números reais.\n");
 				
 			}
 

@@ -18,112 +18,127 @@ int main() {
     switch (escolha) {
         case 1:// Adição
             resultado = pnumero + snumero;
-            printf("\nResultado: %g\n", resultado);
+            printf("%g", resultado);
             break;
         case 2:// Subtração
             resultado = pnumero - snumero;
-            printf("\nresultado: %g\n", resultado);
+            printf("%g", resultado);
             break;
         case 3:// Multiplicação
             resultado = pnumero * snumero;
-            printf("\nResultado: %g\n", resultado);
+            printf("%g", resultado);
             break;
         case 4:// Divisão
             if (snumero == 0) {
                 printf("\nNão é possível dividir por zero.\n");
             } else {
                 resultado = pnumero / snumero;
-                printf("\nResultado: %g\n", resultado);
+                printf("%g", resultado);
             }
             break;
         case 5:// Exponenciação
             resultado = pow(pnumero, snumero);
-            printf("\nResultado: %g\n", resultado);
+            printf("%g", resultado);
             break;
         case 6:// Modulo resto da divisão
             resultado = fmod(pnumero, snumero);
-            printf("\nResultado: %g\n", resultado);
+            printf("%g", resultado);
             break;
         case 7:// Porcentagem
             resultado = (pnumero / 100.0) * snumero;
-            printf("\nresultado: %g\n", resultado);
+            printf("%g", resultado);
             break;
         case 8:// Hipotenusa
             resultado = hypot(pnumero, snumero);
-            printf("\nResultado: %g\n", resultado);
+            printf("%g", resultado);
             break;
         case 9:// Raiz quadrada
                 resultado = sqrt(pnumero);
-                printf("\nResultado: %g\n", resultado);
+                printf("%g", resultado);
             break;
         case 10:// Raiz cubica
             resultado = cbrt(pnumero);
-            printf("\nResultado: %g\n", resultado);
+            printf("%g", resultado);
             break;
         case 11:{// Seno
             double radianos = pnumero * (pi / 180.0);
             resultado = sin(radianos);
-            printf("\nresultado: %g\n", resultado);
+            printf("%g", resultado);
 		}
             break;
         case 12:{// Cosseno
             double radianos = pnumero * (pi / 180.0);
             resultado = cos(radianos);
-            printf("\nResultado: %g\n", resultado);
+            printf("%g", resultado);
 		}
             break;
         case 13:{ // Tangente
             double radianos = pnumero * (pi / 180.0);
                 resultado = tan(radianos);
-                printf("\nResultado: %g\n", resultado);
+                printf("%g", resultado);
 		}
             break;
         case 14:// Arcseno
                 resultado = asin(pnumero) * (180.0 / pi);
-                printf("\nResultado (em graus): %g\n", resultado);
+                printf("(em graus): %g", resultado);
             break;
         case 15:// Arccosseno
                 resultado = acos(pnumero) * (180.0 / pi);
-                printf("\nResultado (em graus): %g\n", resultado);
+                printf("(em graus): %g", resultado);
             break;
         case 16:// Arctangente
             resultado = atan(pnumero) * (180.0 / pi);
-            printf("\nResultado (em graus): %g\n", resultado);
+            printf("(em graus): %g", resultado);
             break;
         case 17:// Logaritmo na base 10
                 resultado = log10(pnumero);
-                printf("\nResultado: %g\n", resultado);
+                printf("%g", resultado);
             break;
         case 18:// Logaritmo natural
                 resultado = log(pnumero);
-                printf("\nResultado: %g\n", resultado);
+                printf("%g", resultado);
             break;
         case 19:// Fatorial
                 resultado = 1;
                 for (int i = 1; i <= (int)pnumero; i++) {
                     resultado *= i;
                 }
-                printf("\nResultado: %g\n", resultado);
+                printf("%g", resultado);
             break;
-        case 20:// Valor absoluto
-            resultado = fabs(pnumero);
-            printf("\nResultado: %g\n", resultado);
+        case 20:// Radianos para Graus
+            resultado = pnumero * (180.0 / pi);
+            printf("%g", resultado);
             break;
         case 21:// Arredondar para baixo
             resultado = floor(pnumero);
-            printf("\nResultado: %g\n", resultado);
+            printf("%g", resultado);
             break;
         case 22:// Arredondar 
             resultado = ceil(pnumero);
-            printf("\nresultado: %g\n", resultado);
+            printf("%g", resultado);
             break;
         case 23:// Graus para radianos
             resultado = pnumero * (pi / 180.0);
-            printf("\nResultado radianos: %g\n", resultado);
+            printf("%g", resultado);
             break;
-        case 24:// Radianos para graus
-            resultado = pnumero * (180.0 / pi);
-            printf("\nResultado graus: %g\n", resultado);
+        case 24:// Teorema de Pitagoras
+			    if (pnumero == 0) {
+				pnumero = (snumero * snumero) + (tnumero * tnumero);
+				resultado = sqrt(pnumero);
+				printf("%g", resultado);
+			} else if (snumero == 0) {
+				pcima1 = (tnumero * tnumero);
+				pbaixo = (pnumero * pnumero);
+				pcima2 = pbaixo - pcima1;
+				resultado = sqrt(pcima2);
+				printf("%g", resultado);
+			} else if (tnumero == 0) {
+				pcima1 = (snumero * snumero);
+				pbaixo = (pnumero * pnumero);
+				pcima2 = pbaixo - pcima1;
+				resultado = sqrt(pcima2);
+				printf("%g", resultado);
+			}
             break;
         case 25:// Equação de segundo grau usando baskara
 			delta = pow(snumero, 2) - (4 * (pnumero * tnumero));
@@ -133,7 +148,7 @@ int main() {
 				pbaixo = 2 * pnumero;
 				resultado = pcima1 / pbaixo;
 				resultado2 = pcima2 / pbaixo;
-				printf("\nPrimeiro Resultado %.2lf \n", resultado);
+				printf("Primeiro Resultado %.2lf \n", resultado);
 				printf("Segundo Resultado %.2lf\n", resultado2);
 				
 			} else if (delta == 0) {

@@ -10,20 +10,6 @@ A calculadora é capaz de realizar desde operações básicas até funções mat
 
 ---
 
-## Tabela de Conteúdos
-
-* [Introdução](#-introdução)
-* [Funcionalidades](#-funcionalidades)
-* [Arquitetura](#-arquitetura)
-* [Dependências](#-dependências)
-* [Instalação e Execução](#-instalação-e-execução)
-* [Uso](#-uso)
-* [Exemplos de Entrada](#-exemplos-de-entrada)
-* [Versão Independente](#-versão-independente)
-* [Contribuidores](#-contribuidores)
-
----
-
 ## Introdução
 
 A interface web envia os dados para o código em C via **JavaScript**.
@@ -62,11 +48,11 @@ A calculadora suporta as seguintes operações:
 * Logaritmo na base 10
 * Logaritmo natural
 * Fatorial
-* Valor absoluto
+* Conversão: Radianos → Graus
 * Arredondar para baixo (floor)
 * Arredondar para cima (ceil)
 * Conversão: Graus → Radianos
-* Conversão: Radianos → Graus
+* Teorema de Pitagoras
 * Equação de segundo grau (Bhaskara)
 
 ---
@@ -151,7 +137,7 @@ Além da versão CGI, o projeto também possui o arquivo **calculadoraindependen
 ### Executar no console:
 
 ```bash
-gcc calculadoraindependente.c -o calculadora -lm
+gcc calculadora.c -o cgi-bin/calculadora.cgi -lm
 ./calculadora
 ```
 
