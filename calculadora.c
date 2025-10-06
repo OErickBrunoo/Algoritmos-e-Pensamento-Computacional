@@ -2,17 +2,27 @@
 #include <math.h>
 #include <stdlib.h>
 
+//iniciando a função principal
+//ela retornará um valor inteiro e se chamará "main", por padrão
 int main() {
 
+	//declarando o tratamento do texto de entrada
 	printf("Content-Type: text/plain\n\n");	
 
+	//definindo variáveis para multiplos valores
     double pnumero, snumero, tnumero, delta, resultado, resultado2, pcima1, pbaixo, pcima2;
 	float radianos;
     int escolha;
+	//variável constante par armazenar o valor de pi
 	const double pi = 3.1415926535897;
+
+	//Aponta na memória onde está localizada a informação
+	//char é o padrão para armazenamento de caracteres
+	//o asterisco(*) sinaliza um ponteiro de dados
+	//getenv, do stdlib, vai pegar a variável de ambiente e armazenar no ponteiro de dados
     char *dados = getenv("QUERY_STRING");
 	
-	
+	//o primo do scanf que não pede input, ele vai usar um output e armazenar em outra variável
     sscanf(dados, "%lf&%d&%lf&%lf", &pnumero, &escolha, &snumero, &tnumero); // formato {num1}&${operador}&${num2}&${num3}
     
     switch (escolha) {
