@@ -86,31 +86,30 @@ int main() {
 			
 			free(array);
             break;
-        case 2:// Subtração
-            printf("Número de elementos: ");
-			scanf("%d", &tamanho);
-			array = (int *) malloc(tamanho * sizeof(int));
-			
-			printf("Digite o elemento principal: ");
-			scanf("%d", &array[0]);
-			
-			acao = array[0];
-			printf("Digite %d elementos a serem subtraidos:\n", tamanho);
-			for (int i = 0; i < tamanho; i++) {
-			printf("A subtrair %d: ", i + 1);
-			scanf("%d", &array[i]);
-			acao -= array[i];
-			}
-			
-			printf("\nResultado: %g\n", acao);
-			
-			free(array);
+		case 2: // Subtração
+            printf("Digite o valor inicial: ");
+            scanf("%lf", &acao); 							// Primeiro valor e dado, sendo ele o valor primário.
+
+            printf("Quantos numeros deseja subtrair desse valor? ");  
+            scanf("%d", &tamanho);
+
+            if (tamanho > 0) {
+            printf("Digite os %d numeros a serem subtraidos:\n", tamanho);
+            for (int i = 0; i < tamanho; i++) {
+            double subtracao;								// Uma variável é feita somente para essa função.
+            printf("Subtrair o valor %d: ", i + 1);
+            scanf("%lf", &subtracao);
+            acao -= subtracao; 								// A cada ciclo uma nova subtração é feita no valor primário
+                }
+            }
+
+            printf("\nResultado: %g\n", acao);
             break;
         case 3:// Multiplicação
             printf("Digite o total de números a Multiplicar:");
 			scanf("%d", &tamanho);
 			
-			acao = 1;
+			acao = 1;										// Ação é inicialmente 1 porque não dá para multiplicar por zero e continuar a função.
 
 			array = (int *) malloc(tamanho * sizeof(int));
 			
