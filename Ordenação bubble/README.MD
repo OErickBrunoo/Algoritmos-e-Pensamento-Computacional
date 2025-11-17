@@ -42,11 +42,11 @@ Digite o RGM para insertion sort: 45619662
 ## saída
 
 RGM ordenado em Bubble: 12456669
-Passos 39 /
+Passos 39 \
 O tempo de execução foi de 0.000002 segundos.
 
 RGM ordenado em Insertion: 12456669
-Passos 12 /
+Passos 12 \
 O tempo de execução foi de 0.000000 segundos.
 
 ## Considerações
