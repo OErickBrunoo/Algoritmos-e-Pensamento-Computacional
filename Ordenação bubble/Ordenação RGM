@@ -66,12 +66,12 @@ tempo_decorridoB = (double)(fimB - inicioB) / CLOCKS_PER_SEC;
   printf("\nmetodo,N,passos,tempo_ms");
   printf("\nBubble,%s", rgmA);
   printf("%d,", passosA);
-  printf("%f,\n", tempo_decorridoA); 
+  printf("%f\n", tempo_decorridoA); 
   
   printf("\nmetodo,N,passos,tempo_ms");
   printf("\nInsertion,%s", rgmB);
   printf("%d,", passosB);
-  printf("%f,", tempo_decorridoB);  
+  printf("%f", tempo_decorridoB);  
   
   return 0;
 }
