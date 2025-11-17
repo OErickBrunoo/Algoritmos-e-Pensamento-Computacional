@@ -1,1 +1,73 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
+int i, j, k, l, temp;
+char rgmA[9];
+char rgmB[9];
+int passosA;
+int passosB;
+
+int main(){
+    clock_t inicioA, fimA;
+    clock_t inicioB, fimB;
+    double tempo_decorridoA;
+    double tempo_decorridoB;
+
+
+    printf("Digite o RGM para bubble sort: ");
+    scanf("%8s", &rgmA);
+    
+    printf("Digite o RGM para insertion sort: ");
+    scanf("%8s", &rgmB);
+    
+
+inicioA = clock(); // Bubble sort
+
+  for (i = 0; i < 7; i++) {
+      
+    for (j = 0; j < 7 - i; j++) {
+      if (rgmA[j] > rgmA[j + 1]) {
+        temp = rgmA[j];
+        rgmA[j] = rgmA[j + 1];
+        rgmA[j + 1] = temp;
+        passosA++;
+      }
+      passosA++;
+    }
+    
+  }
+  
+fimA = clock(); // fim Bubble sort
+
+inicioB = clock(); // Insertio sort
+    temp = 0;
+  for (i = 0; i < 7; i++) {
+      temp = rgmB[i];
+      j = i - 1;
+        passosB++;
+        
+    while (j >= 0 && rgmB[j] > temp) {
+            rgmB[j + 1] = rgmB[j];
+            j = j - 1;
+         passosB++;
+        }
+    rgmB[j + 1] = temp;
+  }
+   
+
+fimB = clock(); // fim Insertion sort
+
+tempo_decorridoA = (double)(fimA - inicioA) / CLOCKS_PER_SEC;
+tempo_decorridoB = (double)(fimB - inicioB) / CLOCKS_PER_SEC;
+
+  printf("\nRGM ordenado em Bubble: %s\n", rgmA);
+  printf("Passos %d\n", passosA);
+  printf("O tempo de execução foi de %f segundos.\n", tempo_decorridoA); 
+  
+  printf("\nRGM ordenado em Insertion: %s\n", rgmB);
+  printf("Passos %d\n", passosB);
+  printf("O tempo de execução foi de %f segundos.\n", tempo_decorridoB); 
+  
+  return 0;
+}
