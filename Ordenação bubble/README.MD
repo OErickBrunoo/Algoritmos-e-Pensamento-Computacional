@@ -33,7 +33,7 @@ Ele conta os passos dados pela ordenação até a ordenação completa.
 
 ## Exemplos de Entrada
 
-Digite o RGM para bubble sort: 45619662
+Digite o RGM para bubble sort: 45619662 \
 Digite o RGM para insertion sort: 45619662
 
 ## saída
