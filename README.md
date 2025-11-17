@@ -1,7 +1,7 @@
 
 ---
 
-#  Código de ordenação usando 3 tipos de ordenação.
+#  Código de ordenação usando 2 tipos de ordenação.
 
 
 Esse projeto usa a ordenção bubble sort, insertion sort para ordenar de forma crescente os números do RGM. Ele também marca o tempo de execução e os passos dados até a ordenação completa.
@@ -11,7 +11,7 @@ Esse projeto usa a ordenção bubble sort, insertion sort para ordenar de forma 
 
 ## Introdução
 
-De menira simples o usuário colocará o RGM (8 digitos) no console e ele retornará os números ordenados em ordem crescente nos 3 tipos de ordenção.
+De menira simples o usuário colocará o RGM (8 digitos) no console e ele retornará os números ordenados em ordem crescente nos 2 tipos de ordenção.
 
 
 ---
