@@ -63,13 +63,15 @@ fimB = clock(); // fim Insertion sort
 tempo_decorridoA = (double)(fimA - inicioA) / CLOCKS_PER_SEC;     //Calculo do tempo
 tempo_decorridoB = (double)(fimB - inicioB) / CLOCKS_PER_SEC;
 
-  printf("\nRGM ordenado em Bubble: %s\n", rgmA);
-  printf("Passos %d\n", passosA);
-  printf("O tempo de execução foi de %f segundos.\n", tempo_decorridoA); 
+  printf("\nmetodo,N,passos,tempo_ms");
+  printf("\nBubble,%s", rgmA);
+  printf("%d,", passosA);
+  printf("%f,\n", tempo_decorridoA); 
   
-  printf("\nRGM ordenado em Insertion: %s\n", rgmB);
-  printf("Passos %d\n", passosB);
-  printf("O tempo de execução foi de %f segundos.\n", tempo_decorridoB); 
+  printf("\nmetodo,N,passos,tempo_ms");
+  printf("\nBubble,%s", rgmB);
+  printf("%d,", passosB);
+  printf("%f,", tempo_decorridoB);  
   
   return 0;
 }
