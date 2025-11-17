@@ -1,6 +1,3 @@
-
----
-
 #  Código de ordenação usando 2 tipos de ordenação.
 
 
