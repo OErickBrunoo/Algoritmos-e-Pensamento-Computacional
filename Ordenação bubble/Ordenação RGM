@@ -1,22 +1,22 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <stdio.h>      //Input e output
+#include <stdlib.h>     //bibliotecas usadas
+#include <time.h>       //Contagem de tempo
 
-int i, j, k, l, temp;
-char rgmA[9];
-char rgmB[9];
-int passosA;
-int passosB;
+int i, j, temp;
+char rgmA[9];     //Array usado para guardar o RGM para bubble.
+char rgmB[9];     //Array usado para guardar o RGM para insertion.
+int passosA;     //Contagem de passos para bubble
+int passosB;     //Contagem de passos para insertion
 
 int main(){
-    clock_t inicioA, fimA;
+    clock_t inicioA, fimA;  //contagem de tempo
     clock_t inicioB, fimB;
-    double tempo_decorridoA;
+    double tempo_decorridoA;     //Valor para mostrar o tempo decorrido
     double tempo_decorridoB;
 
 
     printf("Digite o RGM para bubble sort: ");
-    scanf("%8s", &rgmA);
+    scanf("%8s", &rgmA);     //Entrada dos valores
     
     printf("Digite o RGM para insertion sort: ");
     scanf("%8s", &rgmB);
@@ -24,25 +24,26 @@ int main(){
 
 inicioA = clock(); // Bubble sort
 
-  for (i = 0; i < 7; i++) {
+  for (i = 0; i < 8; i++) { // Loop que passa por todos os valores
       
-    for (j = 0; j < 7 - i; j++) {
+    for (j = 0; j < 7 - i; j++) {     // Loop para comparação
       if (rgmA[j] > rgmA[j + 1]) {
         temp = rgmA[j];
-        rgmA[j] = rgmA[j + 1];
+        rgmA[j] = rgmA[j + 1];        // Troca de valores caso necessário
         rgmA[j + 1] = temp;
-        passosA++;
+        passosA++; // Contagem de passos
       }
-      passosA++;
+      passosA++; // Contagem de passos
     }
     
   }
   
-fimA = clock(); // fim Bubble sort
+fimA = clock();     // fim Bubble sort
 
-inicioB = clock(); // Insertio sort
+inicioB = clock();     // Insertio sort
     temp = 0;
     j = 0;
+    
 for (i = 1; i < 8; i++) {
     temp = rgmB[i];
     j = i - 1;
@@ -59,7 +60,7 @@ for (i = 1; i < 8; i++) {
 
 fimB = clock(); // fim Insertion sort
 
-tempo_decorridoA = (double)(fimA - inicioA) / CLOCKS_PER_SEC;
+tempo_decorridoA = (double)(fimA - inicioA) / CLOCKS_PER_SEC;     //Calculo do tempo
 tempo_decorridoB = (double)(fimB - inicioB) / CLOCKS_PER_SEC;
 
   printf("\nRGM ordenado em Bubble: %s\n", rgmA);
